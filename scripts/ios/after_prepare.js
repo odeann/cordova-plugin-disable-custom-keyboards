@@ -9,8 +9,8 @@ module.exports = function (context) {
     if (fs.existsSync(appDelegateFile)) {
         var appDelegateContent = fs.readFileSync(appDelegateFile, 'utf-8');
 
-        var importStatement = 'import DisableCustomKeyboardsble';
-        var swizzleCall = 'DisableCustomKeyboardsble.swizzleAppDelegate()';
+        var importStatement = 'import DisableCustomKeyboards';
+        var swizzleCall = 'DisableCustomKeyboards.swizzleAppDelegate()';
 
         if (!appDelegateContent.includes(importStatement)) {
             var lines = appDelegateContent.split('\n');

@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-disable-custom-keyboards"
         version="1.0.0">
-    <name>KeyboardDisable</name>
+    <name>DisableCustomKeyboards</name>
     <description>Cordova plugin to disable custom keyboards on iOS</description>
     <license>MIT</license>
     <keywords>cordova, keyboard, ios</keywords>
