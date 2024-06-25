@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-disable-custom-keyboards"
+        version="1.0.0">
+    <name>KeyboardDisable</name>
+    <description>Cordova plugin to disable custom keyboards on iOS</description>
+    <license>MIT</license>
+    <keywords>cordova, keyboard, ios</keywords>
+    <engines>
+        <engine name="cordova" version=">=9.0.0"/>
+    </engines>
+    <platform name="ios">
+        <source-file src="src/ios/DisableCustomKeyboards.swift" framework="true"/>
+        <hook type="after_prepare" src="scripts/ios/after_prepare.js" />
+    </platform>
+</plugin>
