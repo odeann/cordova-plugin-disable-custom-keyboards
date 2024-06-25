@@ -4,5 +4,5 @@ Plugin disables custom keyboards in cordova app (for security reasons). iOS only
 ## Installation guide
 
 ```bash
-cordova plugin add path/to/cordova-plugin-keyboard-disable
+cordova plugin add cordova-plugin-disable-custom-keyboards
 ```
