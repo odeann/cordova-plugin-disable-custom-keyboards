@@ -4,31 +4,31 @@ module.exports = function (context) {
     var fs = require('fs');
     var path = require('path');
 
-    var appDelegateFile = path.join(context.opts.projectRoot, 'platforms/ios', 'YOUR_PROJECT_NAME', 'Classes', 'AppDelegate.swift');
+    var appDelegateHeader = path.join(context.opts.projectRoot, 'platforms/ios', 'YOUR_PROJECT_NAME', 'Classes', 'AppDelegate.h');
 
-    if (fs.existsSync(appDelegateFile)) {
-        var appDelegateContent = fs.readFileSync(appDelegateFile, 'utf-8');
+    if (fs.existsSync(appDelegateHeader)) {
+        var headerContent = fs.readFileSync(appDelegateHeader, 'utf-8');
+        var importStatement = '#import "DisableCustomKeyboards.h"';
 
-        var importStatement = 'import DisableCustomKeyboards';
-        var swizzleCall = 'DisableCustomKeyboards.swizzleAppDelegate()';
-
-        if (!appDelegateContent.includes(importStatement)) {
-            var lines = appDelegateContent.split('\n');
+        if (!headerContent.includes(importStatement)) {
+            var lines = headerContent.split('\n');
             lines.splice(1, 0, importStatement);
-            appDelegateContent = lines.join('\n');
+            headerContent = lines.join('\n');
+            fs.writeFileSync(appDelegateHeader, headerContent, 'utf-8');
         }
+    }
 
-        if (!appDelegateContent.includes(swizzleCall)) {
-            var lines = appDelegateContent.split('\n');
-            for (var i = 0; i < lines.length; i++) {
-                if (lines[i].includes('didFinishLaunchingWithOptions')) {
-                    lines.splice(i + 1, 0, swizzleCall);
-                    break;
-                }
-            }
-            appDelegateContent = lines.join('\n');
+    var appDelegateImplementation = path.join(context.opts.projectRoot, 'platforms/ios', 'YOUR_PROJECT_NAME', 'Classes', 'AppDelegate.m');
+
+    if (fs.existsSync(appDelegateImplementation)) {
+        var implementationContent = fs.readFileSync(appDelegateImplementation, 'utf-8');
+        var importStatement = '#import "DisableCustomKeyboards.h"';
+
+        if (!implementationContent.includes(importStatement)) {
+            var lines = implementationContent.split('\n');
+            lines.splice(1, 0, importStatement);
+            implementationContent = lines.join('\n');
+            fs.writeFileSync(appDelegateImplementation, implementationContent, 'utf-8');
         }
-
-        fs.writeFileSync(appDelegateFile, appDelegateContent, 'utf-8');
     }
 };

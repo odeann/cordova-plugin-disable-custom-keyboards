@@ -10,7 +10,8 @@
         <engine name="cordova" version=">=9.0.0"/>
     </engines>
     <platform name="ios">
-        <source-file src="src/ios/DisableCustomKeyboards.swift" framework="true"/>
+        <source-file src="src/ios/DisableCustomKeyboards.m" />
+        <header-file src="src/ios/DisableCustomKeyboards.h" />
         <hook type="after_prepare" src="scripts/ios/after_prepare.js" />
     </platform>
 </plugin>
