@@ -1,0 +1,32 @@
+{
+  "name": "cordova-plugin-disable-custom-keyboards",
+  "version": "1.0.0",
+  "description": "Cordova plugin to disable custom keyboards on iOS",
+  "main": "plugin.xml",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odeann/cordova-plugin-disable-custom-keyboards.git"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "keyboard",
+    "ios"
+  ],
+  "author": "Igor I. Kuzmin <random@academic.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/odeann/cordova-plugin-disable-custom-keyboards/issues"
+  },
+  "homepage": "https://github.com/odeann/cordova-plugin-disable-custom-keyboards#readme",
+  "cordova": {
+    "id": "cordova-plugin-disable-custom-keyboards",
+    "platforms": [
+      "ios"
+    ]
+  }
+
+}
